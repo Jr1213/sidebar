@@ -1,0 +1,157 @@
+// imports
+@import './_colors';
+@import './_extras';
+
+// start navgation
+nav{
+    background-color: $main_color;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all ease-in-out 250ms;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        .toggle{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 5%;
+            right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: ease-in-out 350ms all;
+            overflow: hidden;
+            .top,
+            .bottom,
+            .mid{
+                transition: ease-in-out 350ms all 350ms;
+                width: 30px;
+                height: 5px;
+                background-color: $second_color;
+                margin: 2px 0;
+                border-radius: 5px;
+            }
+            .mid{
+                transform: translateX(200%);
+                
+            }
+            .top{
+                transform:  rotate(140deg) translate(40%);
+            }
+            .bottom{
+                transform:  rotate(230deg) translate(50%);
+            }
+        }
+        .toggle.active{
+            right: -30%;
+            .top,
+            .mid,
+            .bottom{
+                background-color: $main_color;
+            }
+            .mid{
+                transform: translateX(0%)
+            }
+            .top,
+            .bottom{
+                transform:  rotate(0deg) translate(0%);
+            }
+        }
+        // profile
+        .profile{
+            height: 20%;
+        }
+        .navlink{
+            height: 70%;
+            width: 100%;
+            overflow-y: hidden;
+            .navtree{
+                width: 100%; 
+                transition: all ease-in-out 250ms;
+                span{
+                    font-size: 1.5rem;
+                    display: block;
+                    color: $second_color;
+                    width: 100%;
+                    margin: 1rem 0 0 0;
+                    cursor: pointer;
+                    padding: .5rem;
+                    text-transform: uppercase;
+                    &:hover{
+                        background-color: $second_color;
+                        color: $light_black;
+                    }
+                }
+                .navbranch{
+                    color: $second_color;
+                    font-size: 1.0rem;
+                    overflow: hidden;
+                    transition: height ease-in-out 350ms;
+                    height: 0px;
+                    li{
+                        transition: all ease-in-out 250ms ;
+                        padding: .5rem 1rem;
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        &:hover{
+                            background-color: #fff;
+                            color: $light_black;
+                        }
+                    }
+                }
+            }
+            .navtree.active{
+
+                span{
+                    background-color: $second_color ;
+                    color: $light_black;
+                }
+            }
+        }
+        // footer icons
+        .side-footer{
+            height: 10vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            i{
+                font-size: 1.5rem;
+                color: $second_color;
+                cursor: pointer;
+                opacity: 0.6;
+                transition: all ease-in-out 250ms;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+nav.close{
+    transform: translateX(-100%)
+}
+// end navgation
+
+// responsive behiver 
+@media screen and(max-width:1118px){
+    nav{
+        width: 60%;
+    }
+}
+@media screen and(max-width:768px){
+    nav{
+        width: 90%;
+    }
+}
